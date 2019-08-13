@@ -5,9 +5,11 @@ Authentication options for ElasticMS Core
 PHP Code Sniffer is available via composer, the standard used is defined in phpcs.xml.diff:
 
 `composer phpcs`
+
 If your code is not compliant, you could try fixing it automatically:
 
-`composer phpcbf` 
+`composer phpcbf`
+
 PHPStan is run at level 7, you can check for errors locally using:
 
 `composer phpstan`

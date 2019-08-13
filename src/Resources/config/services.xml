@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="false"/>
+
+        <service id="emsa.keycloak" class="EMS\AuthenticationBundle\Service\KeycloakService">
+            <argument /> <!-- added at compile time -->
+        </service>
+        <service id="emsa.provider.keycloak" class="EMS\AuthenticationBundle\Authentication\Provider\KeycloakAuthenticationProvider">
+        </service>
+
+        <service id="emsa.firewall.listener.keycloak" class="EMS\AuthenticationBundle\Firewall\KeycloakListener">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="security.authentication.manager"/>
+            <argument type="service" id="emsa.keycloak"/>
+        </service>
+        <service id="emsa.firewall.logouthandler.keycloak" class="EMS\AuthenticationBundle\Firewall\KeycloakLogoutSuccessHandler">
+            <argument type="service" id="emsa.keycloak"/>
+            <argument type="service" id="security.token_storage"/>
+        </service>
+
+        <!-- controllers -->
+        <service id="emsa.controller.keycloak" class="EMS\AuthenticationBundle\Controller\KeycloakController" public="true">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="twig" />
+        </service>
+    </services>
+</container>

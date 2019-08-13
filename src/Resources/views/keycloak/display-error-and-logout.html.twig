@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IDP Error{% endblock %}
+
+{% block body %}
+    <p>{{ 'error.message.general'|trans }}</p>
+    {% if logoutUrl is not empty %}
+        <a href="{{ logoutUrl }}">{{ 'logout.fas.message'|trans }}</a>
+    {% endif %}
+{% endblock %}
