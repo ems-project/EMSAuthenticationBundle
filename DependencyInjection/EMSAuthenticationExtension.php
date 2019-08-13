@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-class AuthenticationBundleExtension extends Extension
+class EMSAuthenticationExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -20,7 +20,7 @@ class AuthenticationBundleExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $definition = $container->findDefinition('EMS\AuthenticationBundle\Service\KeycloakService');
+        $definition = $container->findDefinition('emsa.keycloak');
         $definition->setArgument('0', $config);
     }
 }
