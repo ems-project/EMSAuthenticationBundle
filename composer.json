@@ -27,8 +27,11 @@
     },
     "autoload" : {
         "psr-4" : {
-            "EMS\\AuthenticationBundle\\" : "src/"
-        }
+            "EMS\\AuthenticationBundle\\" : ""
+        },
+        "exclude-from-classmap": [
+            "tests/"
+        ]
     },
     "autoload-dev" : {
         "psr-4" : {
@@ -38,6 +41,6 @@
     "scripts": {
         "phpcs": "phpcs --standard=phpcs.xml.dist --extensions=php,lib,inc",
         "phpcbf": "phpcbf --standard=phpcs.xml.dist --extensions=php,lib,inc",
-        "phpstan": "phpstan analyse ./src"
+        "phpstan": "phpstan analyse ."
     }
 }
