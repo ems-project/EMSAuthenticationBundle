@@ -25,7 +25,7 @@ matrix:
 before_install:
   # Install PHP CodeSniffer.
   - if [[ "$SNIFF" == "1" ]]; then composer self-update; fi
-  - if [[ "$SNIFF" == "1" ]]; then composer install; fi
+  - if [[ "$SNIFF" == "1" ]]; then COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install; fi
   - phpenv rehash
 
 script:
@@ -34,4 +34,4 @@ script:
   # Run PHPCS
   - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpcs . --standard=./phpcs.xml.dist --extensions=php,lib,inc; fi
   # Run PHPStan
-  - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpstan analyse .; fi
+  - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpstan analyse ./src; fi
