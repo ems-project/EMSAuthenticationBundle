@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('client_id')->isRequired()->end()
                 ->scalarNode('client_secret')->isRequired()->end()
                 ->scalarNode('authorize_url')->isRequired()->end()
-                ->scalarNode('realm')->isRequired()->defaultValue('master')->end()
+                ->scalarNode('realm')->defaultValue('master')->end()
             ->end()
         ;
 

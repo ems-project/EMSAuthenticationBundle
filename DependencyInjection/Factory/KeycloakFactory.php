@@ -16,12 +16,12 @@ class KeycloakFactory implements SecurityFactoryInterface
     {
         $providerId = sprintf('security.authentication.provider.%s.%s', $this->getKey(), $id);
         $container
-            ->setDefinition($providerId, new ChildDefinition(KeycloakAuthenticationProvider::class))
+            ->setDefinition($providerId, new ChildDefinition('emsa.provider.keycloak'))
             ->setArgument(0, new Reference($userProvider))
         ;
 
         $listenerId = sprintf('security.authentication.listener.%s.%s', $this->getKey(), $id);
-        $container->setDefinition($listenerId, new ChildDefinition(KeycloakListener::class));
+        $container->setDefinition($listenerId, new ChildDefinition('emsa.firewall.listener.keycloak'));
 
         return [$providerId, $listenerId, $defaultEntryPoint];
     }
