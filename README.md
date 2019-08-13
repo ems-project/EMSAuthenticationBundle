@@ -15,3 +15,5 @@ PHPStan is run at level 7, you can check for errors locally using:
 `composer phpstan`
 
 ## Documentation
+
+[Config](../master/Resources/doc/config.md)
