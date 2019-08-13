@@ -12,7 +12,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         /** @var $rootNode ArrayNodeDefinition */
-        $rootNode = $treeBuilder->root('idp');
+        $rootNode = $treeBuilder->root('ems_authentication');
 
         $rootNode
             ->children()
