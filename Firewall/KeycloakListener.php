@@ -46,7 +46,7 @@ class KeycloakListener implements ListenerInterface
         if ($token !== null) {
             return false;
         }
-        if ($route === 'idp_post_logout') {
+        if ($route === 'keycloak_post_logout') {
             return false;
         }
         return true;

@@ -4,12 +4,12 @@
         xsi:schemaLocation="http://symfony.com/schema/routing
         http://symfony.com/schema/routing/routing-1.0.xsd">
     <route id="keycloak_login" path="/login" methods="GET">
-        <default key="_controller">EMS\AuthenticationBundle\Controller\KeycloakController::login</default>
+        <default key="_controller">emsa.controller.keycloak::login</default>
     </route>
     <route id="keycloak_logout" path="/oidc/logout" methods="GET">
-        <default key="_controller">EMS\AuthenticationBundle\Controller\KeycloakController::idpLogout</default>
+        <default key="_controller">emsa.controller.keycloak::idpLogout</default>
     </route>
     <route id="keycloak_post_logout" path="/logout" methods="GET">
-        <default key="_controller">EMS\AuthenticationBundle\Controller\KeycloakController::idpPostLogout</default>
+        <default key="_controller">emsa.controller.keycloak::idpPostLogout</default>
     </route>
 </routes>
