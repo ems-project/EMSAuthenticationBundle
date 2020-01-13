@@ -112,12 +112,10 @@ class KeycloakListener implements ListenerInterface
 
     private function getSession(Request $request): SessionInterface
     {
-        $session = $request->getSession();
-
-        if ($session === null) {
+        if (!$request->hasSession()) {
             throw new SessionRequiredException('Keycloak authentication requires an active session');
         }
 
-        return $session;
+        return $request->getSession();
     }
 }
